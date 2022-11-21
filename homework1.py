@@ -32,16 +32,17 @@ for i in range (2):
 x = int(input('write coordinate x:'))
 y = int(input('write coordinate y:'))
 
-if x > 0:
-    if y > 0:
-        print('the first quarter')
+if x != 0 and y != 0:
+    if x > 0:
+        if y > 0:
+            print('the first quarter')
+        else:
+            print('the fourth quarter')
     else:
-        print('the fourth quarter')
-else:
-    if y > 0:
-        print('the second quarter')
-    else:
-        print('the third quarter')
+        if y > 0:
+            print('the second quarter')
+        else:
+            print('the third quarter')
 
 # task4. Напишите программу, которая по заданному номеру четверти, показывает диапазон 
 # возможных координат точек в этой четверти (x и y).
