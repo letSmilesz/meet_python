@@ -47,10 +47,17 @@ for i in range(5):
         max = nums[i]
     elif nums[i] > max:
         max = nums[i]
-
 print(f'Max number is {max}')
 
-
+#Option 3
+max = None
+for i in range(5):
+    num = int(input(f'Write {i + 1} number: '))
+    if i == 0:
+        max = num
+    elif num > max:
+        max = num
+print(f'Max number is {max}')
 
 #1. Напишите программу, которая будет на вход принимать число N и выводить числа от -N до N
     
