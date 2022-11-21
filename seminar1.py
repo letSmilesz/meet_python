@@ -40,12 +40,12 @@ else:
 
 #Option 2
 nums = []
-for i in range(6):
+max = None
+for i in range(5):
     nums[i] = int(input(f'Write {i + 1} number: '))
-
-max = nums[0]
-for i in nums:
-    if nums[i] > max:
+    if i == 0:
+        max = nums[i]
+    elif nums[i] > max:
         max = nums[i]
 
 print(f'Max number is {max}')
