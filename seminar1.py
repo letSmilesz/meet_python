@@ -7,12 +7,12 @@
     # - 25, 5 -> да
     # - 8,9 -> нет
 
-# num1 = input('write the first number:')
-# num2 = input('write the second number:')
-# if num1 == pow(num2, 2) or num2 == pow(num1, 2):
-#     print('yes')
-# else:
-#     print('no')
+num1 = input('write the first number:')
+num2 = input('write the second number:')
+if num1 == pow(num2, 2) or num2 == pow(num1, 2):
+    print('yes')
+else:
+    print('no')
 
 #2. Напишите программу, которая на вход принимает 5 чисел и находит максимальное из них.
     
@@ -21,6 +21,7 @@
     # - 1, 4, 8, 7, 5 -> 8
     # - 78, 55, 36, 90, 2 -> 90
 
+#Option 1
 # num1 = input('write the first number:')
 # num2 = input('write the second number:')
 # num3 = input('write the third number:')
@@ -37,22 +38,36 @@
 # if num5 > max:
 #     max = num5
 
+#Option 2
+nums = []
+for i in range(6):
+    nums[i] = int(input(f'Write {i + 1} number: '))
+
+max = nums[0]
+for i in nums:
+    if nums[i] > max:
+        max = nums[i]
+
+print(f'Max number is {max}')
+
+
+
 #1. Напишите программу, которая будет на вход принимать число N и выводить числа от -N до N
     
     # *Примеры:* 
     
     # - 5 -> -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
 
-# num = int(input('write number: '))
-# x = -num
-# if num < 0:
-#     while x != num - 1:
-#         print(x)
-#         x -= 1
-# else:
-#     while x != num + 1:
-#         print(x)
-#         x += 1
+num = int(input('write number: '))
+x = -num
+if num < 0:
+    while x != num - 1:
+        print(x)
+        x -= 1
+else:
+    while x != num + 1:
+        print(x)
+        x += 1
 
 #2. Напишите программу, которая будет принимать на вход дробь и показывать первую цифру дробной части числа.
     
