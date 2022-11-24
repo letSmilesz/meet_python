@@ -4,22 +4,19 @@
 
 salary = int(input('Write salary: '))
 salary_help = salary
-twentifive = 0
-ten = 0
-five = 0
-one = 0
+bills = [0, 0, 0, 0]
 while salary_help != 0:
     if salary_help % 25 == 0:
-        twentifive += 1
+        bills[0] += 1
         salary_help -= 25
     elif salary_help % 10 == 0:
-        ten += 1
+        bills[1] += 1
         salary_help -= 10
     elif salary_help % 5 == 0:
-        five += 1
+        bills[2] += 1
         salary_help -= 5
     else:
-        one += 1
+        bills[3] += 1
         salary_help -= 1
 
-print(f'Salary {salary} can be paid as: 25 - {twentifive}, 10 - {ten}, 5 - {five}, 1 - {one}')
+print(f'Salary {salary} can be paid as: 25 - {bills[0]}, 10 - {bills[1]}, 5 - {bills[2]}, 1 - {bills[3]}')
