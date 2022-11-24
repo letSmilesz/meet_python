@@ -6,7 +6,7 @@ count_numbers = int(input('Write how much numbers you were write: '))
 max_number = None
 second_max = None
 
-while count_numbers > 0:
+for i in range(count_numbers):
     number = (int(input('Write the number: ')))
     if max_number is None:
         max_number = number
@@ -15,6 +15,5 @@ while count_numbers > 0:
         max_number = number
     elif second_max is None:
         second_max = number
-    count_numbers -= 1
 
 print(f'Max number is {max_number}, second max number is {second_max}')
