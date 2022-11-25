@@ -8,12 +8,10 @@ second_max = None
 
 for i in range(count_numbers):
     number = (int(input('Write the number: ')))
-    if max_number is None:
-        max_number = number
-    elif number > max_number:
+    if max_number is None or number > max_number:
         second_max = max_number
         max_number = number
-    elif second_max is None:
+    elif second_max is None or number > second_max:
         second_max = number
 
 print(f'Max number is {max_number}, second max number is {second_max}')
