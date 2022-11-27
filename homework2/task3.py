@@ -23,10 +23,10 @@ bills = [0, 0, 0, 0]
 
 #option 2
 i = 0
-for j in 25, 10, 5, 1:
+for j in 25, 10, 3, 1:
     bills[i] = salary_help // j
     salary_help -= bills[i] * j
     if salary_help == 0: break
     i += 1
 
-print(f'Salary {salary} can be paid as: 25 - {bills[0]}, 10 - {bills[1]}, 5 - {bills[2]}, 1 - {bills[3]}')
+print(f'Salary {salary} can be paid as: 25 - {bills[0]}, 10 - {bills[1]}, 3 - {bills[2]}, 1 - {bills[3]}')
