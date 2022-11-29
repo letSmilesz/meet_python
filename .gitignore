@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+alarm.mp3
 # C extensions
 *.so
 
