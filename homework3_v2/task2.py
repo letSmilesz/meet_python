@@ -13,3 +13,8 @@ if is_float(text):
         num = int(text)
     print(f'You`re enter {type(num)} type.')
 else: print('You`re enter string')
+
+#option 2
+if text.count('.') > 1: print('It`s string')
+elif text.count('.') == 0 and text.isdigit(): print('It`s int')
+else: print('It`s float')
