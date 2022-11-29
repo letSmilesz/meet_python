@@ -5,7 +5,8 @@
 def reverse_between_letter(text: str, letter):
     start = text.find(letter)
     end = text.rfind(letter)
-    if start == end: return (f'In this text only one letter "{letter}"')
+    if start == -1: return (f'In this text noone letter "{letter}"')
+    elif start == end: return (f'In this text only one letter "{letter}"')
     else: return text[0:start] + text[end:start:-1] + text[end:len(text)]
 
 text = input('Enter the text: ')
