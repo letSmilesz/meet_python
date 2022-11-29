@@ -15,6 +15,8 @@ if is_float(text):
 else: print('You`re enter string')
 
 #option 2
-if text.count('.') > 1: print('It`s string')
+if text.count('.') == 1: 
+    help = text.replace('.', '')
+    if help.isdigit(): print('It`s float')
 elif text.count('.') == 0 and text.isdigit(): print('It`s int')
-else: print('It`s float')
+else: print('It`s string')
