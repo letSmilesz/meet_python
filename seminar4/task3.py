@@ -11,9 +11,8 @@ for i in range(5):
 
 res = []
 for i in range((len(nums) // 2) + len(nums) % 2):
-    if nums[i] == nums[len(nums) -1 - i]: res.append(nums[i])
-    else: res.append(nums[i] * nums[len(nums) -1 - i])
-
+    res.append(nums[i] * nums[len(nums) -1 - i])
+if len(nums) // 2 != 0: res.append(nums[len(nums) // 2 + 1])
 
 print(nums)
 print(res)
