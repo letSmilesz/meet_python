@@ -14,8 +14,7 @@ def print_field(arr, size):
 
 def check_lines(arr):
     for i in range(len(arr)):
-        x = 0
-        o = 0
+        x, o = 0, 0
         for j in range(len(arr)):
             if arr[i][j] == 1: o += 1
             elif arr[i][j] == 2: x += 1
@@ -24,8 +23,7 @@ def check_lines(arr):
 
 def check_colls(arr):
     for i in range(len(arr)):
-        x = 0
-        o = 0
+        x, o = 0, 0
         for j in range(len(arr)):
             if arr[j][i] == 1: o += 1
             elif arr[j][i] == 2: x += 1
@@ -33,10 +31,7 @@ def check_colls(arr):
     else: return False
 
 def check_diag(arr):
-    x1 = 0
-    o1 = 0
-    x2 = 0
-    o2 = 0
+    x1, x2, o1, o2 = 0, 0, 0, 0
     length = len(arr) - 1
     for i in range(len(arr)):
         if arr[i][i] == 1: o1 += 1
