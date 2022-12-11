@@ -8,7 +8,7 @@ def clear(): system('CLS')
 
 def plug(): pass
 
-def print_game(word, know_letters, theme, points):
+def print_game(word, know_letters, theme = '', points = 0):
     if theme != '': print(f'The theme of game: {theme}!             You have {points} points!')
     print()
     print('---' * len(word))
@@ -25,7 +25,7 @@ def animation(txt: str, bool = False, f = plug, word = '', know_letters = [], po
     for i in range(5):
         if i < 3: print(txt + '.' * i)
         else: print(txt + '.' * (i - 3))
-        if bool: f(word, know_letters, '', points)
+        if bool: f(word, know_letters)
         sleep(0.5)
         clear()
 
@@ -34,7 +34,7 @@ def animation2(word, know_letters, letter):
     for i in range(len(word)):
             if word[i] == letter:
                 for j in range(3):
-                    print_game(word, know_letters, '', points)
+                    print_game(word, know_letters)
                     if j < 2: know_letters[i] += 1
                     sleep(1)
                     clear()
@@ -54,10 +54,10 @@ def print_rules(theme):
     clear()
 
 def drum(turn):
-    values = [1, 1, 1, 1, 1, 3, 3, 3, 3, 5, 5, 5, 5, 8, 8, 8, 10, 15, 30, 40, 50, 60, 70, 80, 90, 100, 999]
+    values = [1, 3, 5, 8, 10, 15, 30, 40, 50, 60, 70, 80, 90, 100, 999]
     prizes = ['x', 'b', 'p']
     animation('The drum is revolving.')
-    if turn > 3: 
+    if turn > 2: 
         value = values[randint(0, len(values) - 1)]
         if value == 999: value = choice(prizes)
     else: value = values[randint(0, len(values) - 2)]
@@ -71,7 +71,7 @@ def drum(turn):
 def end_of_game(bool, word, know_letters, points):
     if bool: print('You quessed!')
     else: print('I`m sorry, you lost :(')
-    print_game(word, know_letters, '', points)
+    print_game(word, know_letters)
     print(f'At the end of game you had {points} points.')
 
 def check_num_letter(num_letter, word, know_letters):
@@ -107,7 +107,7 @@ for i in range(15):
     if len(letter) > 1: 
         answer = input('Are you sure you want to enter the whole word? Enter "yes" or "no": ').lower()
         if answer == 'yes': 
-            animation('You.', True, print_game, word, know_letters, points)
+            animation('You.', True, print_game, word, know_letters)
             know_letters = [2 for i in range(len(know_letters))]
             if letter == word:
                 end_of_game(True, word, know_letters, points)
@@ -128,13 +128,17 @@ for i in range(15):
         sleep(3)
         continue
     else: entered_letters.append(letter)
-    animation('You.', True, print_game, word, know_letters, points)
+    animation('You.', True, print_game, word, know_letters)
     if word.count(letter) > 0:
         print('You guessed!')
         sleep(3)
         animation2(word, know_letters, letter)
         if value == 'x': points *= word.count(letter) + 1
-        else: points += value  
+        else: points += value
+        if not(0 in know_letters): 
+            clear()
+            end_of_game(True, word, know_letters, points)
+            break
     else: 
         print('You didn`t guess :(')
         sleep(3)
