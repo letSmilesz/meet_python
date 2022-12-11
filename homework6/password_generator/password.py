@@ -4,7 +4,6 @@ letters = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'p', 'a', 's', 'd', 'f', 'g', 'h',
     'v', 'b', 'n', 'm']
 
 def generate_password(m):
-    letters
     password = ''
     what_was = []
     for i in range(m):
