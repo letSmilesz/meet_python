@@ -19,8 +19,7 @@ def generate_password(m, letters):
             else: what_is = 2
             what_was[len(what_was) - 1] = what_is 
         if what_is == 0: password += str(randint(2, 9))
-        elif what_is == 1:  
-            password += (str(choice(letters))).upper()
+        elif what_is == 1: password += (str(choice(letters))).upper()
         else: password += choice(letters)
     return password
 
