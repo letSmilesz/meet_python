@@ -27,14 +27,13 @@ def search_in_file(name, value = None, where = 'name',what = 'full'):
     with open(name, 'r') as data:
         try:
             peoples = data.readlines()
-            line = 1
-            for i in peoples:
-                if value == None: ans += f'{line}) {i}'
-                else: ans += find_value(line, i, value, where, what)                    
-                line += 1
+            for line, i in enumerate(peoples):
+                if value == None: ans += f'{line + 1}) {i}'
+                else: ans += find_value(line + 1, i, value, where, what)                    
             if ans == '': ans += 'None'
         except IndexError: ans = 'Error. Enter correct request'
     return ans
+print(search_in_file('table.txt', 'Sara', what=['name','srnm']))
 
 def change_file(name, num_of_line, request):
     arr_requests = request.split(',')
@@ -66,7 +65,7 @@ def delete_from_file(name, num_of_line):
         res = ''
         try:
             for i, line in enumerate(file):
-                if i < num_of_line - 1 or i > num_of_line: res += line
+                if i < num_of_line - 1 or i >= num_of_line: res += line
                 else: continue
             else: 
                 create_file(name)
