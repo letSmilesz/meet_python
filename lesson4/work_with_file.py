@@ -66,10 +66,8 @@ def delete_from_file(name, num_of_line):
         res = ''
         try:
             for i, line in enumerate(file):
-                if i < num_of_line - 1: res += line
-                elif i == num_of_line - 1:
-                    res += ''
-                else: res += line
+                if i < num_of_line - 1 or i > num_of_line: res += line
+                else: continue
             else: 
                 create_file(name)
                 add_to_file(name, res)
