@@ -14,7 +14,7 @@ def find_value(line, strng, value, where = 'name', what = 'full'):
     ans = ''
     string = strng.split()
     if string[values_of_what[where]].find(value) != -1:
-        if what == 'full': ans += f'{line}) {i}'
+        if what == 'full': ans += f'{line}) {strng}'
         else:
             ans += f'{line}) '
             for i in what:
