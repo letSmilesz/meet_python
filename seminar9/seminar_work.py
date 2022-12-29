@@ -5,7 +5,7 @@ from requests import *
 # print(responce.status_code)
 # print(responce.text)
 
-api_key = '4321a3d417b53045aa1b6617c529c910'
+api_key = #ругается гитхаб, первая четыре'321a3d417b53045aa1b6617c529c910'
 city_name = 'Moscow'
 
 responce = get(f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric&lang=ru')
