@@ -1,5 +1,5 @@
-from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
+from telegram import Bot, KeyboardButton, ReplyKeyboardMarkup
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from tg_token import token
 from work_lists import add_result, next, previous, like, get_liked
 
@@ -9,7 +9,6 @@ dispatcher = updater.dispatcher
 base_irl = 'https://www.anekdot.ru/last'
 types_of_joke = {'Jokes': '/anekdot/', 'Histories': '/story/', 'Phrases': '/aphorism/', 
     'Rhymes': '/poems/'}
-ids = []
 
 
 def pprint(update, context, message: str) -> None:
@@ -55,19 +54,6 @@ def show_liked(update, context):
     main_menu(update, context)
 
 
-def line_buttons(update, context):
-    text = ''
-    query = update.callback_query
-    query.answer()
-    if query.data == '1': 
-        text = previous()
-    elif query.data == '2': 
-        text = like()
-    elif query.data == '3': 
-        text = next()
-    show(update, context, text)
-
-
 def surprize(update, context):
     pprint(update, context, 'Happy New Year!')
     main_menu(update, context)
@@ -90,7 +76,7 @@ def message(update, context):
     elif update.message.text == 'Like': like()
     elif update.message.text == 'Next': show(update, context, next())
 
-dispatcher.add_handler(CallbackQueryHandler(line_buttons))
+
 dispatcher.add_handler(CommandHandler('start', start))
 dispatcher.add_handler(CommandHandler('main', main_menu))
 dispatcher.add_handler(CommandHandler('show', show))
